@@ -1,0 +1,6 @@
+{
+    "send_email": "***@***",
+    "receive_email": "***@***",
+    "device_name": "***",
+    "log_file_name": ".ip_log.txt"
+}

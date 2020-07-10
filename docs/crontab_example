@@ -21,5 +21,5 @@
 #
 # m h  dom mon dow   command
 @reboot sudo systemctl restart ssh
-@reboot sleep 5 && sudo python3 your_path/boot_ip.py > your_path/log.txt 2>&1
-*/10 * * * * sudo python3 your_path/check_ip.py >> your_path/log.txt 2>&1
+@reboot sleep 5 && sudo python3 your_path/check_ip.py > your_path/log.txt 2>&1
+*/10 * * * * sudo python3 your_path/check_ip.py check >> your_path/log.txt 2>&1
