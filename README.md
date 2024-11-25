@@ -25,6 +25,22 @@ Report the IP of your Raspberry Pi(or boards like Jetson Nano) with emails when 
     2. `/24` is length of subnet mask for you network and decided by `netmask 255.255.255.0`. 
     3. `10.0.0.1` is your local router's IP, and `10.0.0.255` is reserved for local network broadcast.
     4. `8.8.8.8` is the second DNS address(google's DNS)
+    
+    On new ubuntu system(like jetson by Nvidia), the static IP config can be done with `netplan`. modify any yaml file under `/etc/netplan/`, e.g, `/etc/netplan/01-config.yaml` to
+    ```
+    network:
+      version: 2
+      renderer: networkd
+      ethernets:
+        wlan0:
+          addresses: [10.0.0.252/24]
+          nameservers:
+            addresses: [8.8.8.8, 8.8.4.4]
+          routes:
+            - to: default
+              via: 10.0.0.1
+    ```
+    then reboot or `sudo netplan apply`
 3. Reboot and check,
     ```
     ifconfig wlan0      # check new IP
